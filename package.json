@@ -1,0 +1,13 @@
+{
+     "name": "hot-restaurant",
+     "version": "1.0.0",
+     "description": "We only have 5 tables!  Book your seat before they all are gone!",
+     "main": "server.js",
+     "dependencies": {
+       "body-parser": "^1.15.0",
+       "express": "^4.13.4"
+     },
+     "scripts": {
+       "start": "node server.js"
+     }
+}
