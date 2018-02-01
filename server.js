@@ -49,12 +49,12 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "./app/public/home.html"));
 });
 
-app.get("/survey", function(req, res) {
+app.get("/reservation", function(req, res) {
   res.sendFile(path.join(__dirname, "./app/public/reservation.html"));
 })
 
-app.get("/add", function(req, res) {
-  res.sendFile(path.join(__dirname, "add.html"));
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "./app/public/tables.html"));
 });
 
 // Get all characters
@@ -76,7 +76,7 @@ app.get("/api/:reservations?", function(req, res) {
     }
     return res.json(false);
   }
-  return res.json(friends);
+  return res.json(reservations);
 });
 
 // Create New Characters - takes in JSON input
@@ -98,5 +98,6 @@ app.post("/api/new", function(req, res) {
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
+  require("./app/routing/htmlRoutes.js")(app);
   console.log("App listening on PORT " + PORT);
 });

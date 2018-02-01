@@ -1,13 +1,20 @@
+module.exports= function(app){
+
 // Your htmlRoutes.js file should include two routes:
 // A GET Route to /survey which should display the survey page.
 // A default, catch-all route that leads to home.html which displays the home page.
 
 // GET method route
-app.get('/', function (req, res) {
-  res.send('GET request to the homepage')
-})
+	app.get('/', function (req, res) {
+	  res.send('GET request to the home page')
+	})
 
-// GET method route
-app.get('/reservation', function (req, res) {
-  res.send('GET request to the reservation')
-})
+	// GET method route
+	app.get('/reservation', function (req, res) {
+	  res.send('GET request to the reservation')
+	})
+
+	app.get('/tables', function (req, res) {
+	  res.send('GET request to the tables')
+	})
+}
