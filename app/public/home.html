@@ -20,23 +20,19 @@
   <div class="container">
 
     <div class="jumbotron">
-      <h1><i class="fa fa-facebook-square" aria-hidden="true"></i>Hot Restaurant</h1>
+      <h1>Hot Restaurant</h1>
       <hr>
       <h2>Current Reservation and Waiting List</h2>
       <br>
 
       <div>
-        <a href="/reservation"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>Make Reservation</h4></button></a>
+        <a href="/reservation"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>Make Reservation</h4></button></a><a href="/tables"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>View Tables</h4></button></a>
       </div>
-      <div>
-        <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>View Tables</h4></button></a>
-      </div>
-
     </div>
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/tables">API Table Link</a> | <a href="https://github.com/paulamcarpenter/hot-restaurant">API Waiting List</a></p>
+        <p><a href="/tables">API Table Link</a> | <a href="/reservation">API Waiting List</a></p>
       </div>
     </footer>
 
@@ -46,14 +42,14 @@
   <script type="text/javascript">
     // QUESTION: What is this code doing?
     $("#search-btn").on("click", function() {
-      var searchedTable = $("#table-search").val().trim();
+      var searchedReservation= $("#reservation-search").val().trim();
 
       // Using a RegEx Pattern to remove spaces from searchedCharacter
       // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedTable = searchedTable.replace(/\s+/g, "").toLowerCase();
+      searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
 
       // QUESTION: What does $.get do? What are the parameters it is expecting?
-      $.get("/api/" + searchedTable, function(data) {
+      $.get("/reservation" + searchedReservation, function(data) {
         console.log(data);
         if (data) {
           $("#stats").show();
@@ -77,7 +73,7 @@
       searchedTable = searchedTable.replace(/\s+/g, "").toLowerCase();
 
       // QUESTION: What does $.get do? What are the parameters it is expecting?
-      $.get("/api/" + searchedTable, function(data) {
+      $.get("/tables" + searchedTable, function(data){
         console.log(data);
         if (data) {
           $("#stats").show();
