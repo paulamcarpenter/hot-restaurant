@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Hot Restaurant</title>
+  <title>Hot Restaurant Tables</title>
 
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
   <div class="container">
 
     <div class="jumbotron">
-      <h1><i class="fa fa-facebook-square" aria-hidden="true"></i>Hot Restaurant</h1>
+      <h1>Tables</h1>
       <hr>
       <h2>Current Reservation and Waiting List</h2>
       <br>
@@ -36,7 +36,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/tables">API Table Link</a> | <a href="https://github.com/paulamcarpenter/hot-restaurant">API Waiting List</a></p>
+        <p><a href="/api/friends">API Table Link</a> | <a href="https://github.com/paulamcarpenter/hot-restaurant">API Waiting List</a></p>
       </div>
     </footer>
 
@@ -68,31 +68,6 @@
         }
       });
     });
-
-    $("#search-btn").on("click", function() {
-      var searchedTable = $("#table-search").val().trim();
-
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedTable = searchedTable.replace(/\s+/g, "").toLowerCase();
-
-      // QUESTION: What does $.get do? What are the parameters it is expecting?
-      $.get("/api/" + searchedTable, function(data) {
-        console.log(data);
-        if (data) {
-          $("#stats").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
-        }
-        else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
-        }
-      });
-    });
-
   </script>
 
 </body>
